@@ -1,9 +1,11 @@
 import { getAllKeywords } from "./keyword";
 
 export const head = {
-  title: 'Florenino Navarro',
+  title: 'Florenino Navarro Díaz',
   description:
-    'Desarrollamos páginas web modernas y aplicaciones web personalizadas que impulsan tu negocio hacia el éxito digital. Nuestro equipo de expertos en desarrollo web se especializa en crear soluciones tecnológicas innovadoras, sitios web responsivos y aplicaciones web robustas que se adaptan perfectamente a las necesidades de tu empresa. Desde el diseño UX/UI hasta la programación avanzada, ofrecemos servicios completos de desarrollo web con tecnologías de vanguardia como React, Node.js, PHP y WordPress. Transformamos tu visión digital en realidad con proyectos optimizados para SEO, alta performance y experiencia de usuario excepcional.',
+    'Soy Florentino Navarro, un desarrollador con mas de 15 años de experiencia, especializado en crear sitios web únicos y funcionales',
+  // description:
+  //   'Desarrollamos páginas web modernas y aplicaciones web personalizadas que impulsan tu negocio hacia el éxito digital. Nuestro equipo de expertos en desarrollo web se especializa en crear soluciones tecnológicas innovadoras, sitios web responsivos y aplicaciones web robustas que se adaptan perfectamente a las necesidades de tu empresa. Desde el diseño UX/UI hasta la programación avanzada, ofrecemos servicios completos de desarrollo web con tecnologías de vanguardia como React, Node.js, PHP y WordPress. Transformamos tu visión digital en realidad con proyectos optimizados para SEO, alta performance y experiencia de usuario excepcional.',
   keywords: getAllKeywords(),
   favicon: '/favicon.svg',
   image: 'https://i.ibb.co/9HkW6NCj/principal.jpg',

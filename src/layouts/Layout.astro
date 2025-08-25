@@ -18,8 +18,29 @@ import Header from '@/components/Header.astro';
 	</body>
 </html>
 <script>
-  const h = window.innerHeight
-  const w = window.innerWidth
-    const densidad = window.devicePixelRatio;
-  console.log(`${w} * ${h} densidad: ${densidad}`)
+  const headerHeight = document.querySelector('header')?.offsetHeight as number;
+  console.log(headerHeight)
+
+  // const h = window.innerHeight
+  // const w = window.innerWidth
+  //   const densidad = window.devicePixelRatio;
+  // console.log(`${w} * ${h} densidad: ${densidad}`)
+  const links = [...document.querySelectorAll('a[href^="#"]')] as HTMLAnchorElement[];
+  links.forEach((link) => {
+    // console.log(link)
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      console.log(link.getAttribute('href'))
+      const href = link.getAttribute('href') as string;
+      const target = document.querySelector(href) as HTMLElement;
+      // const posEle = target.getBoundingClientRect().y;
+      const posEle = target.offsetTop - (headerHeight * 2);
+      console.log(link)
+      window.scrollTo({
+        top: posEle,
+        behavior: 'smooth'
+      });
+    })
+  });
+
 </script>

@@ -5,6 +5,7 @@
 .AboutMe{
   // background: lime;
 
+  padding-bottom: 30vh;
   &__container{
     padding: 0;
     @media (width >= 1024px){
@@ -24,6 +25,7 @@
       display: block;
       border-radius: 10%;
       width: 50%;
+      opacity: .8;
       @media (width >= 1024px){
         margin: 0 auto;
         width: auto;
