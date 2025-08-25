@@ -1,0 +1,90 @@
+---
+import Counter from "@/components/Counter.astro";
+
+
+---
+
+<section class="AboutMe" id="quien-soy">
+  <div class="AboutMe__container">
+    <img src="/img/me.jpg" srcset="/img/me@md.webp 500w, /img/me@lg.webp 1000w, /img/me@xl.webp 1500w" loading="lazy" alt="Florentino Navarro" class="AboutMe__img">
+    <div class="AboutMe__text">
+      <p>Soy Florentino Navarro, un desarrollador con mas de 15 años de experiencia, especializado en crear sitios únicos y funcionales. Desarrollo páginas modernas, rápidas y optimizadas que impulsan tu negocio. Atención personalizada, precios justos y resultados que hablan por sí solos.</p>
+      <p class="AboutMe__text--bold">¡Hagamos realidad tu proyecto digital!</p>
+      <ul class="AboutMe__stats">
+        <li class="stat stat1">
+          <Counter
+            value={15}
+            suffix="+"
+            label="Años de Experiencia"
+            duration={2500}
+          />
+        </li>
+        <li class="stat stat2">
+            <Counter
+            value={100}
+            suffix="+"
+            label="Proyectos Completados"
+            duration={3000}
+          />
+        </li>
+        <li class="stat stat3">
+          <Counter
+            value={90}
+            suffix="%+"
+            label="Clientes Satisfechos"
+            duration={2000}
+          />
+        </li>
+      </ul>
+      <!-- <div class="stats-grid">
+        <Counter
+          value={14}
+          suffix="+"
+          label="Años de Experiencia"
+          duration={2500}
+        />
+
+        <Counter
+          value={100}
+          suffix="+"
+          label="Proyectos Completados"
+          duration={3000}
+        />
+
+        <Counter
+          value={90}
+          suffix="%+"
+          label="Clientes Satisfechos"
+          duration={2000}
+        />
+      </div>
+    </div> -->
+  </div>
+  <!-- <div class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <Counter
+          value={14}
+          suffix="+"
+          label="Years Of Experience"
+          duration={2500}
+        />
+
+        <Counter
+          value={1000}
+          suffix="+"
+          label="Complete Projects"
+          duration={3000}
+        />
+
+        <Counter
+          value={90}
+          suffix="%+"
+          label="Client Satisfactions"
+          duration={2000}
+        />
+      </div>
+    </div>
+  </div> -->
+
+</section>

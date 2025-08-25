@@ -1,0 +1,43 @@
+---
+
+// import { ClientRouter } from 'astro:transitions';
+import { head } from "@/data/head";
+const { title, description, image, url, favicon,keywords } = head;
+interface Props {
+  subtitle?: string;
+}
+const { subtitle } = Astro.props as Props;
+---
+
+<title>{`${title} ${subtitle ? `- ${subtitle}` : ""}`}</title>
+
+<meta charset="UTF-8" />
+<meta name="description" content={description} />
+
+<link rel="icon" type="image/svg" href="/favicon.svg" />
+<link rel="icon" href={favicon} />
+<link rel="canonical" href={url} />
+<meta name="viewport" content="width=device-width" />
+
+<meta name="keywords" content={Array.isArray(keywords) ? keywords.join(", ") : keywords} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="" />
+<meta name="twitter:creator" content="" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />
+
+<meta name="og:image" content={image} />
+<meta name="og:title" content={title} />
+<meta name="og:description" content={description} />
+<meta name="og:url" content={url} />
+<meta name="og:site_name" content={title} />
+<meta name="og:type" content="website" />
+<meta name="og:locale" content="es-GT" />
+
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+
+<!-- <link rel="stylesheet" href="/fonts/stylesheet.css"> -->
+<!-- <ClientRouter /> -->

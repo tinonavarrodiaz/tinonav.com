@@ -1,0 +1,21 @@
+---
+import { projects } from "@/data/projects";
+
+console.log(projects.length % 2)
+---
+
+<section class="Projects" id="proyectos">
+  <ul class="Projects__container">
+      {
+        projects.map(item=>(
+          <li class="Project">
+            <a href={`https://${item.link}`} target="_blank" rel="noreferrer" class="Project__link" data-name={`${item.name}`} data-description={`${item.description}`} data-img={`${item.img}`} data-link={`${item.link}`} style={`--color: ${item.color}`} title={`${item.link}`}>
+              <span class="Project__span" set:html={item.logo}></span>
+              {/* <img src={`${item.img}`} class="Proyect__img" alt={`${item.name}`}/> */}
+              {/* <img src={`${item.logo}`} class="Project__logo" alt={`${item.name}`}/> */}
+            </a>
+          </li>
+        ))
+      }
+  </ul>
+</section>

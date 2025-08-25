@@ -1,0 +1,59 @@
+---
+import { menu } from "@/data/menu";
+import Close from "./icons/Close.astro";
+import Nav from "./icons/Nav.astro";
+import Logo from "./icons/Logo.astro";
+
+
+---
+
+<header class="Header">
+  <a href="#hero" class="Header__logo">
+    <Logo/>
+    tinonav
+  </a>
+  <nav class="Header__nav">
+    <button class="Header__menu--toggle">
+      <Nav/>
+    </button>
+    <ul class="Header__menu">
+      <button class="Header__menu--close">
+        <Close/>
+      </button>
+      {
+        menu.map((item)=>(
+          <li class="Header__menu--item">
+            <a href={item.link} class="Header__menu--link">{item.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.querySelector('.Header__menu--toggle') as HTMLButtonElement
+  const close = document.querySelector('.Header__menu--close') as HTMLButtonElement
+  const menu = document.querySelector('.Header__menu') as HTMLUListElement
+  const header = document.querySelector('.Header') as HTMLElement
+  const items = document.querySelectorAll('.Header__menu--link') as NodeListOf<HTMLLIElement>
+  toggle.addEventListener('click', (e)=>{
+    menu.classList.add('is-active')
+  })
+  close.addEventListener('click', (e)=>{
+    menu.classList.remove('is-active')
+  })
+  items.forEach((item)=>{
+    item.addEventListener('click', (e)=>{
+      close.click()
+    })
+  })
+  window.addEventListener('scroll', (e)=>{
+    const scrollY = window.scrollY
+    if(scrollY>=10){
+      header.classList.add('fixed')
+    }else{
+      header.classList.remove('fixed')
+    }
+  })
+</script>

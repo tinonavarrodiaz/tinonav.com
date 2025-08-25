@@ -1,0 +1,105 @@
+@use '../mixins/mixins' as *;
+@use '../functions/functions' as *;
+.Contact{
+  background: var(--color-footer);
+  padding: 4em 1.5em;
+  color: var(--color-alt);
+  @include from(lg){
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3,get-vw(640px));
+    // grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    // height: get-vw(838px);
+    padding-top: get-vw(210px);
+    padding-bottom: get-vw(267px);
+  }
+  &__logo, &__cuidamos{
+    width: 50%;
+    margin: 0 auto 2em;
+    @include from(lg){
+      width: get-vw(263px);
+      margin-bottom: get-vw(42px);
+    }
+  }
+  &__cuidamos{
+    width: 40%;
+    @include from(lg){
+      width: get-vw(176px);
+      margin-bottom: get-vw(80px);
+    }
+  }
+  &__social{
+    display: flex;
+    justify-content: center;
+    column-gap: 1em;
+    margin-bottom: 2em;
+    @include from(lg){
+      margin-bottom: 0;
+      column-gap: get-vw(17px);
+
+    }
+    img{
+      width: auto;
+      height: 1.5em;
+      @include from(lg){
+        height: get-vw(28px);
+      }
+    }
+  }
+  &__menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: .5em;
+    margin-bottom: 2em;
+    font-family: var(--font-minion);
+    @include from(lg){
+      align-items: flex-start;
+      font-size: get-vw(24px);
+      row-gap: get-vw(40px);
+      padding-left: get-vw(130px);
+      margin-bottom: 0;
+      transform: translateY(15%);
+    }
+    li, a{
+      text-align: center;
+    }
+  }
+  &__text-contacto, &__text-visitanos{
+    width: 20%;
+    margin: 0 auto;
+    margin-bottom: 1em;
+    @include from(lg){
+      width: get-vw(83px);
+      margin: 0;
+      margin-bottom: get-vw(65px);
+    }
+  }
+  &__text-visitanos{
+    @include from(lg){
+      width: get-vw(85px);
+      margin-bottom: get-vw(15px);
+    }
+  }
+  &__email, &__address{
+    width: 100%;
+    @include from(lg){
+      width: get-vw(426px);
+    }
+  }
+  &__email{
+    margin-bottom: 2em;
+    @include from(lg){
+      margin-bottom: get-vw(82px);
+    }
+  }
+  &__right{
+    @include from(lg){
+      padding-left: get-vw(40px);
+      transform: translateY(12%);
+    }
+  }
+
+}

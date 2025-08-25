@@ -1,0 +1,99 @@
+@use 'sass:map';
+
+$sm: 640px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1280px;
+$xxl: 1536px;
+$xxxl: 1920px;
+
+$breakpoints: (
+  sm: $sm,
+  md: $md,
+  lg: $lg,
+  xl: $xl,
+  xxl: $xxl,
+  xxxl: $xxxl,
+  xs: 0,
+) !default;
+
+// Definición de breakpoints (asegúrate de definir este mapa en tu proyecto)
+// $breakpoints: (
+//   sm: 576px,
+//   md: 768px,
+//   lg: 992px,
+//   xl: 1200px,
+// ) !default;
+
+// Función auxiliar para obtener el valor del breakpoint
+@function get-breakpoint($size) {
+  @return if(
+    map.has-key($breakpoints, $size),
+    map.get($breakpoints, $size),
+    $size
+  );
+}
+
+// Mixin para max-width
+@mixin to($size) {
+  $breakpoint: get-breakpoint($size);
+  @media (max-width: #{$breakpoint - 1px}) {
+    @content;
+  }
+}
+
+// Mixin para min-width
+@mixin from($size) {
+  $breakpoint: get-breakpoint($size);
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Mixin para rango entre dos breakpoints
+@mixin from-to($from, $to) {
+  $from-breakpoint: get-breakpoint($from);
+  $to-breakpoint: get-breakpoint($to);
+  @media (min-width: $from-breakpoint) and (max-width: #{$to-breakpoint - 1px}) {
+    @content;
+  }
+}
+
+// Mixin para orientación landscape
+@mixin land() {
+  @media (orientation: landscape) {
+    @content;
+  }
+}
+
+// Mixin para orientación portrait
+@mixin port() {
+  @media (orientation: portrait) {
+    @content;
+  }
+}
+
+// Mixin para max-width en landscape
+@mixin land-to($size) {
+  $breakpoint: get-breakpoint($size);
+  @media (orientation: landscape) and (max-width: #{$breakpoint - 1px}) {
+    @content;
+  }
+}
+
+// Mixin para max-width en portrait
+@mixin port-to($size) {
+  $breakpoint: get-breakpoint($size);
+  @media (orientation: portrait) and (max-width: #{$breakpoint - 1px}) {
+    @content;
+  }
+}
+
+// @mixin from-land($size) {
+// }
+// @mixin from-port($size) {
+// }
+// @mixin to-land($size) {
+// }
+// @mixin to-port($size) {
+// }

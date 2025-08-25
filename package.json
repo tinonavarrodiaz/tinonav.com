@@ -3,12 +3,23 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --host",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "astro preview --host",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.13.2"
+    "@fontsource-variable/inter": "^5.2.6",
+    "aos": "^2.3.4",
+    "astro": "^5.13.2",
+    "axios": "^1.11.0",
+    "hamburgers": "^1.2.1"
+  },
+  "devDependencies": {
+    "@types/aos": "^3.0.7",
+    "sass": "^1.90.0",
+    "vite-plugin-mkcert": "^1.17.8",
+    "vite-plugin-qrcode": "^0.3.0",
+    "vite-plugin-remove-console": "^2.2.0"
   }
 }

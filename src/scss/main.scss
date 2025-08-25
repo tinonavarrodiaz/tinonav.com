@@ -1,0 +1,30 @@
+@use './mixins/mixins' as *;
+@use './functions/functions' as *;
+@use './config/variables';
+
+@use 'reset/reset';
+@use 'base/base';
+
+@use 'layout/layout';
+
+// components
+@use 'components/header';
+@use 'components/hamburger';
+
+// sections
+@use 'sections/welcome';
+@use 'sections/projects';
+@use 'sections/about';
+// @use 'sections/gallery';
+// @use 'sections/programs';
+// @use 'sections/oursearc';
+// @use 'sections/history';
+// @use 'sections/contact';
+:target{
+
+  // scroll-margin-top: 2em;
+  scroll-margin-top: calc(var(--header-height) + 2rem);
+  @include from(lg) {
+    scroll-margin-top: calc(var(--header-height) + 5rem);
+  }
+}

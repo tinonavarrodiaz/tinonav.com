@@ -1,0 +1,35 @@
+@use '../mixins/mixins' as *;
+@use '../functions/functions' as *;
+
+.OurSearch{
+  background: var(--main-color-alt);
+  padding: 5em 1.5em;
+  color:var(--color-secondary);
+  @include from(lg){
+    padding: get-vw(102px) get-vw(205px) get-vw(220px) ;
+  }
+  &__logo{
+    width: 20%;
+    max-width: 100px;
+    margin: 0 auto;
+    margin-bottom: 3em;
+    @include from(lg){
+      width: get-vw(100px);
+      margin-bottom: get-vw(95px);
+    }
+  }
+  &__text{
+    text-align: center;
+    margin-bottom: 1.5em;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    @include from(lg){
+      font-size: get-vw(48px);
+      margin-bottom: get-vw(62px);
+      line-height: get-vw(53px);
+    }
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+}

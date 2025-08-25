@@ -1,0 +1,40 @@
+@use 'sass:color';
+
+@use '../mixins/mixins' as *;
+@use '../functions/functions' as *;
+:root {
+  --main-color: rgb(191, 195, 194);
+  --main-color-alt: rgb(232, 227, 223);
+  --main-color-dark: hsl(0, 0%, 6%);
+  --color: #fff;
+  --color-alt: rgb(76, 83, 63);
+  --color-secondary: rgb(76, 83, 63);
+  --color-footer: rgb(191, 195, 194);
+  --bg-color: hsl(229, 84%, 5%);
+  // --bg-color: transparent;
+  --max-width: unset;
+  --font-body: 'Inter Variable', sans-serif;
+  --font-title: 'Inter Variable', sans-serif;
+  // --font-secondary: 'Satoshi-Variable', arial;
+  // // --font-secondary: 'Agenda', serif;
+  // --font-title: 'Apple Garamond', serif;
+  // --font-minion: 'Minion', serif;
+  --font-size: 20px;
+  --header-height: 80px;
+  --z-back: -1;
+  --z-normal: 0;
+  --z-header: 100;
+  --z-modal:1000;
+  @include from(lg) {
+    --font-size: #{get-vw(22px)};
+    --button-width: 50px;
+    --width: 400px;
+    --max-width: none;
+    --max-width: 1200px;
+    --header-height: 80px;
+  }
+  @include from(xxl) {
+    --max-width: none;
+    --width: 450px;
+  }
+}

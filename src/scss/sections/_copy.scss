@@ -1,0 +1,38 @@
+@use '../mixins/mixins' as *;
+@use '../functions/functions' as *;
+
+.Copy{
+  padding: 5rem 2rem;
+  text-align: center;
+  color: var(--color-alt);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--main-color-alt);
+  font-weight: bold;
+  @include from(lg){
+    padding: get-vw(328px) get-vw(182px) get-vw(291px);
+    font-size: get-vw(34px);
+  }
+  p{
+    margin-bottom: 1em ;
+    line-height: 1.2;
+    letter-spacing: 2px;
+    @include from(lg){
+      margin-bottom: get-vw(37px);
+      line-height: get-vw(43px);
+    }
+    &:last-child, &:last-of-type{
+      margin-bottom: 0;
+    }
+  }
+  &__logo{
+    width: 150px;
+    margin-top: 3rem;
+    @include from(lg){
+      margin-top: get-vw(223px);
+      width: get-vw(220px);
+    }
+  }
+}

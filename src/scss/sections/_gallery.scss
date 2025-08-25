@@ -1,0 +1,51 @@
+@use '../mixins/mixins' as *;
+@use '../functions/functions' as *;
+
+.Gallery {
+  --bg: var(--main-color-alt);
+  --brake: 25%;
+
+  --porcentage: 25%;
+  padding: 0 2em 4em;
+  display: grid;
+  background: linear-gradient(to bottom, var(--bg) var(--porcentage), #fff var(--porcentage));
+  gap: 1.3em;
+  // opacity: 0.5;
+  @media (orientation: portrait) {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    .img-container {
+      &:first-child {
+        grid-column: span 4 / span 4;
+      }
+      &:nth-child(2) {
+        grid-column: span 4 / span 4;
+        grid-column-start: 5;
+      }
+      &:last-child {
+        grid-column: span 4 / span 4;
+        grid-column-start: 3;
+        grid-row-start: 2;
+      }
+    }
+  }
+  @media (orientation: landscape) {
+    display: grid;
+    opacity: 1;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, auto);
+    padding-left: 3em;
+    padding-right: 3em;
+  }
+  @media (orientation: landscape) and (width >= 1024px) {
+    --porcentage: #{get-vw(286px)};
+    --brake: #{get-vw(286px)};
+    padding: 0 get-vw(166px) get-vw(275px);
+    column-gap: get-vw(20px);
+    background: linear-gradient(
+      to bottom,
+      var(--bg) var(--brake),
+      #fff var(--brake)
+    );
+  }
+}

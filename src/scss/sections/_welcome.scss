@@ -1,0 +1,40 @@
+@use '../mixins/mixins' as *;
+@use '../functions/functions' as *;
+
+.Welcome {
+  position: relative;
+  // padding-top: calc(var(--header-height) + 0px);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.5em;
+  h1{
+    text-align: center;
+    font-size: clamp(30px, 3em, 45px);
+    line-height: 1em;
+    font-weight: 300;
+    @media (width >= 1024px){
+      font-size: get-vw(70px);
+    }
+    span{
+      display: block;
+      color: #0099ff;
+      font-weight: 700;
+    }
+  }
+  p{
+    text-align: center;
+    font-size: 16px;
+    margin-top: 2rem;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    font-weight: 300;
+    @media (width >= 1024px){
+      font-size: get-vw(30px);
+      padding: 0 10%;
+      margin-top: get-vw(60px);
+    }
+  }
+}

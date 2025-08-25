@@ -1,0 +1,119 @@
+@use '../mixins/mixins' as *;
+@use '../functions/functions' as *;
+
+
+.AboutMe{
+  // background: lime;
+
+  &__container{
+    padding: 0;
+    @media (width >= 1024px){
+      // background: #000;
+      max-width: 70%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 70%;
+      padding: 0 !important;
+      align-items: center;
+     }
+    img{
+      aspect-ratio: 1 / 1;
+      max-height: 400px;
+      margin: 0 auto;
+      margin-bottom: 2em;
+      display: block;
+      border-radius: 10%;
+      width: 50%;
+      @media (width >= 1024px){
+        margin: 0 auto;
+        width: auto;
+        height: 70%;
+        margin-bottom: 0;
+      }
+      // border-radius: 50%;
+    }
+
+    h2{
+      text-align: center;
+    }
+    p{
+      text-align: center;
+      line-height: 1.2;
+      padding: 0 1.5em;
+      font-size: .95em;
+
+    }
+
+  }
+  &__text--bold{
+    // color: red;
+    font-size: 1.1em;
+    font-weight: 700;
+  }
+
+  &__stats{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 8px;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 2em;
+    row-gap: 2em;
+    @media (width >= 1024px){
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: unset;
+    }
+    .stat{
+      text-align: center;
+      font-size: 2em;
+      line-height: 3em;
+      font-size: 1em;
+    }
+    .stat1{
+      // background: lime;
+      @media (width < 1024px){
+        grid-column: span 2 / span 2;
+      }
+    }
+    .stat2{
+      @media (width < 1024px){
+        grid-column: span 2 / span 2;
+        grid-column-start: 3;
+      }
+      // background: red;
+    }
+    .stat3{
+      @media (width < 1024px){
+        grid-column: span 2 / span 2;
+        grid-column-start: 2;
+        grid-row-start: 2;
+      }
+    }
+  }
+
+}
+.counter-container{
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  row-gap: .3em;
+}
+.counter-number{
+  font-size: 1.5em !important;
+  font-weight: 600;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.counter-suffix{
+  font-size: 60%;
+  // color: red;
+}
+p.counter-label{
+  font-size: .7em !important;
+}

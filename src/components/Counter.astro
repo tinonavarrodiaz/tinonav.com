@@ -1,0 +1,97 @@
+---
+// Counter.astro
+export interface Props {
+  value: number;
+  suffix?: string;
+  prefix?: string;
+  label: string;
+  duration?: number;
+  className?: string;
+}
+
+const {
+  value,
+  suffix = "",
+  prefix = "",
+  label,
+  duration = 2000,
+  className = ""
+} = Astro.props;
+---
+
+<aside class={`counter-container ${className}`}>
+  <p class="counter-number">
+    <span class="counter-value" data-target={value} data-duration={duration}>0</span>
+    <span class="counter-suffix">{suffix}</span>
+  </p>
+  <p class="counter-label">{label}</p>
+</aside>
+
+
+
+<script>
+  // Función para animar el contador
+  function animateCounter(element: HTMLElement, target: number, duration: number) {
+    const start = 0;
+    const startTime = performance.now();
+    console.log(performance.now)
+    function updateCounter(currentTime: number) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      // Función de easing (ease-out)
+      const easedProgress = 1 - Math.pow(1 - progress, 3);
+
+      const current = Math.floor(start + (target - start) * easedProgress);
+      element.textContent = current.toString();
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      } else {
+        element.textContent = target.toString();
+      }
+    }
+
+    requestAnimationFrame(updateCounter);
+  }
+
+  // Intersection Observer para detectar cuando el elemento es visible
+  function initCounters() {
+    const counters = document.querySelectorAll('.counter-value');
+
+    const observerOptions = {
+      threshold: 0.5,
+      rootMargin: '0px 0px -10% 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const element = entry.target as HTMLElement;
+          const target = parseInt(element.dataset.target || '0');
+          const duration = parseInt(element.dataset.duration || '2000');
+
+          // Solo animar si aún no se ha animado
+          if (!element.classList.contains('animated')) {
+            element.classList.add('animated');
+            animateCounter(element, target, duration);
+          }
+
+          // Dejar de observar este elemento
+          observer.unobserve(element);
+        }
+      });
+    }, observerOptions);
+
+    counters.forEach(counter => {
+      observer.observe(counter);
+    });
+  }
+
+  // Inicializar cuando el DOM esté listo
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCounters);
+  } else {
+    initCounters();
+  }
+</script>
