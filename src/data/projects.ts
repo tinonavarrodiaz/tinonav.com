@@ -1,4 +1,4 @@
-import { aadoccsa, cargo, chulavista, da, daa, eslabon, geotica, jardin, latarea, lqp, mandala, nuvi, pnlc, rhz, rioverde, sip, united, vistas, b360 } from "./logos";
+import { aadoccsa, cargo, chulavista, da, daa, eslabon, geotica, jardin, latarea, lqp, mandala, nuvi, pnlc, rhz, rioverde, sip, united, vistas, b360, sphynx, curamia } from "./logos";
 
 export const projects = [
   {
@@ -62,6 +62,26 @@ export const projects = [
     img: '/img/proyectos/mandala.webp',
     link: 'tequilamandala.com',
     logo: mandala,
+    color: 'hsl(0, 0%, 50%)',
+    // color: 'hsl(230, 42%, 22%)',
+    year: 2019
+  },
+  {
+    name: 'SPHYNX Tequila',
+    description: `Discover Sphynx Tequila, the UK's premier craft tequila brand. Experience our award-winning collection of Blanco, Añejo, Cristalino, and Extra Añejo tequilas, meticulously crafted from 100% Blue Weber Agave. Premium quality, exceptional taste.`,
+    img: '/img/proyectos/mandala.webp',
+    link: 'sphynxtequila.com/',
+    logo: sphynx,
+    color: 'hsl(0, 0%, 50%)',
+    // color: 'hsl(230, 42%, 22%)',
+    year: 2019
+  },
+  {
+    name: 'Curamia Tequila',
+    description: `Welcome to the world of Curamia, the high-quality tequila rooted in Mexican legacy. A 100% women-owned tequila brand.`,
+    img: '/img/proyectos/mandala.webp',
+    link: 'curamiatequila.com/',
+    logo: curamia,
     color: 'hsl(0, 0%, 50%)',
     // color: 'hsl(230, 42%, 22%)',
     year: 2019
