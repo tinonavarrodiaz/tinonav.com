@@ -1,0 +1,43 @@
+---
+interface Props {
+  action: string;
+  method: string;
+}
+const { action, method } = Astro.props;
+---
+<form action={action} method={method} class="Contact__form">
+    <div class="input-group">
+      <input type="text" id="name" name="name" placeholder=" " required value="Tino"/>
+      <label for="name">Nombre</label>
+    </div>
+    <div class="input-group">
+      <input type="number" id="phone" name="phone" placeholder=" " required value="1234567890" />
+      <label for="phone">Teléfono</label>
+    </div>
+    <div class="input-group">
+      <input type="email" id="email" name="email" placeholder=" " required value="joseph.story@examplepetstore.com"/>
+      <label for="name">Email</label>
+    </div>
+    <div class="input-group">
+      <input type="text" id="subject" name="subject" placeholder=" " required value="Asunto" />
+      <label for="subject">Asunto</label>
+    </div>
+    <div class="input-group text-area">
+      <textarea name="message" placeholder=" " id="message" required>Prueba</textarea>
+      <label for="message">Mensaje</label>
+    </div>
+    <p class="Contact__notes">Mensaje Envido con éxito</p>
+    <button type="submit">Enviar</button>
+  </form>
+
+
+  <script>
+import { send } from "@/libs/send";
+
+
+
+    const form = document.querySelector('.Contact__form') as HTMLFormElement;
+
+    send(form);
+
+  </script>

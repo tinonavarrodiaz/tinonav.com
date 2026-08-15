@@ -1,0 +1,75 @@
+---
+import Facebook from "@/components/icons/Facebook.astro";
+import Instagram from "@/components/icons/Instagram.astro";
+import X from "@/components/icons/X.astro";
+import Linkedin from "@/components/icons/Linkedin.astro";
+
+const phone = "3313048691";
+const phoneIntl = `+52${phone}`;
+
+// Ajusta los enlaces a tus perfiles reales si difieren
+const social = [
+  { label: "Facebook", icon: Facebook, link: "https://www.facebook.com/tino.navarro1" },
+  { label: "Instagram", icon: Instagram, link: "https://www.instagram.com/navarrod08" },
+  { label: "X", icon: X, link: "https://x.com/tinonav" },
+  { label: "LinkedIn", icon: Linkedin, link: "https://www.linkedin.com/public-profile/settings/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact_info%3BtRuoyTSXQqqvBDQUvj%2B2Kg%3D%3D" },
+];
+---
+
+<section class="Contact" id="contacto">
+  <article class="Contact__info">
+    <h2>¿Estás Listo?</h2>
+    <p>Lleva la experiencia de tu marca al siguiente nivel</p>
+    <a class="Contact__phone" href={`tel:${phoneIntl}`}>{phone}</a>
+    <ul class="Contact__social">
+      {
+        social.map((item) => (
+          <li>
+            <a href={item.link} target="_blank" rel="noopener noreferrer" aria-label={item.label} title={item.label}>
+              <item.icon />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </article>
+
+  <form class="Contact__form" action="/contact" method="post">
+    <div class="input-group">
+      <input type="text" id="contact-name" name="name" placeholder=" " required />
+      <label for="contact-name">Nombre</label>
+    </div>
+    <div class="input-group">
+      <input type="tel" id="contact-phone" name="phone" placeholder=" " required />
+      <label for="contact-phone">Teléfono</label>
+    </div>
+    <div class="input-group">
+      <input type="email" id="contact-email" name="email" placeholder=" " required />
+      <label for="contact-email">Email</label>
+    </div>
+    <div class="input-group text-area">
+      <textarea name="message" placeholder=" " id="contact-message" required></textarea>
+      <label for="contact-message">Mensaje</label>
+    </div>
+    <button type="submit">Enviar</button>
+  </form>
+</section>
+
+<style>
+  .Contact__phone {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.1em;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color);
+  }
+</style>
+
+<script>
+  import { send } from "@/libs/send";
+
+  const form = document.querySelector('.Contact__form') as HTMLFormElement;
+  if (form) send(form);
+</script>

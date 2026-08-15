@@ -1,0 +1,40 @@
+---
+// import Facebook from "@/components/icons/Facebook.astro"
+import Github from "./icons/Github.astro"
+import Linkedin from "./icons/Linkedin.astro"
+import Whatsapp from "./icons/Whatsapp.astro"
+
+
+
+const social = [
+  // {
+  //   icon: Facebook,
+  //   link: 'https://www.facebook.com/tino.navarro1'
+  // },
+  {
+    icon: Whatsapp,
+    link: 'https://wa.me/523313048691?text=Hola,%20me%20interesa%20tu%20servicio'
+  },
+  {
+    icon: Github,
+    link: 'https://github.com/tinonavarrodiaz'
+  },
+  {
+    icon: Linkedin,
+    link: 'https://www.linkedin.com/in/florentino-navarro-diaz'
+  }
+]
+---
+
+<ul class="Contact__social">
+  {
+    social.map((item) => (
+      <li>
+        <a href={item.link} target="_blank" rel="noopener noreferrer">
+          <item.icon />
+        </a>
+      </li>
+    ))
+  }
+
+</ul>

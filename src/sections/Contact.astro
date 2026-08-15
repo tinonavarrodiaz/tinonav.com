@@ -1,0 +1,15 @@
+---
+import Form from "@/components/Form.astro";
+import Social from "@/components/Social.astro";
+const action = "/contact";
+const method = "post";
+
+---
+<section class="Contact">
+  <article class="Contact__info">
+    <h2>¿Estás Listo?</h2>
+    <p>Lleva la experiencia de tu marca al siguiente nivel</p>
+    <Social/>
+  </article>
+  <Form action={action} method={method}/>
+</section>

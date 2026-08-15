@@ -26,7 +26,7 @@
   --z-header: 100;
   --z-modal:1000;
   @include from(lg) {
-    --font-size: #{get-vw(22px)};
+    --font-size: #{get-vw(20px)};
     --button-width: 50px;
     --width: 400px;
     --max-width: none;
