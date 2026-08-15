@@ -1,6 +1,16 @@
-import { aadoccsa, cargo, chulavista, da, daa, eslabon, geotica, jardin, latarea, lqp, mandala, nuvi, pnlc, rhz, rioverde, sip, united, vistas } from "./logos";
+import { aadoccsa, cargo, chulavista, da, daa, eslabon, geotica, jardin, latarea, lqp, mandala, nuvi, pnlc, rhz, rioverde, sip, united, vistas, b360 } from "./logos";
 
 export const projects = [
+  {
+    name: 'B360',
+    classN: 'b360',
+    description: 'B360 conecta empresarios, emprendedores y líderes que creen que el crecimiento sucede más rápido cuando se comparte experiencia, conocimiento y relaciones de valor.',
+    img: '/img/proyectos/b360.svg',
+    link: 'b360.com.mx',
+    color: '#c1c2c5',
+    logo: b360,
+    year: 2025
+  },
   {
     name: 'Geotica',
     description: 'Geôtica Grupo Empresarial es una marca comercial compuesta por cuatro marcas de ingeniería: PLINT, MERIDIANO, MOVING US e IPSÚ, cuyas respectivas trayectorias en el campo de las vías terrestres, transporte y movilidad urbana, se han unido para dar cobertura a toda la geografía nacional',
@@ -8,7 +18,7 @@ export const projects = [
     link: 'geotica.com.mx',
     color: '#c1c2c5',
     logo: geotica,
-    year: 20243
+    year: 2024
   },
   {
     name: '4 Cargo',
